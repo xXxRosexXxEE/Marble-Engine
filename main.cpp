@@ -59,21 +59,21 @@ int SDL_Manager::RenderFrame(bool Switch)
 {
 	  if(Switch == true)
 		{
-					glClear(GL_COLOR_BUFFER_BIT);
-					
-					glBegin(GL_QUADS);
-					 glColor3f(1.0, 0.0 , 0.0);
-					glVertex2f(0.0,1.0);
-					 glColor3f(1.0, 1.0 , 0.0);
-					glVertex2f(1.0,1.0);
-					 glColor3f(1.0, 0.0 , 1.0);
-					glVertex2f(1.0,0.0);
-					 glColor3f(0.0, 0.0 , 1.0);
-					glVertex2f(0.0,0.0);
-					glEnd();
-										
-					SDL_GL_SwapWindow(MainWindow);
-			}
+			glClear(GL_COLOR_BUFFER_BIT);
+			
+			glBegin(GL_QUADS);
+			 glColor3f(1.0, 0.0 , 0.0);
+			glVertex2f(0.0,1.0);
+			 glColor3f(1.0, 1.0 , 0.0);
+			glVertex2f(1.0,1.0);
+			 glColor3f(1.0, 0.0 , 1.0);
+			glVertex2f(1.0,0.0);
+			 glColor3f(0.0, 0.0 , 1.0);
+			glVertex2f(0.0,0.0);
+			glEnd();
+								
+			SDL_GL_SwapWindow(MainWindow);
+		}
 	}
 
 int main(int argc, char **)
