@@ -34,7 +34,8 @@ int SDL_Manager::SetupWindow(bool Switch)
 		{
 			MainWindow = NULL;
 			
-			MainWindow = SDL_CreateWindow("Marble Engine 1.0", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 480 , SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL );
+			MainWindow = SDL_CreateWindow("Marble Engine 1.0", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 
+			640, 480 , SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL );
 			
 			if(MainWindow == NULL){
 				std::cout << SDL_GetError() << std::endl;
