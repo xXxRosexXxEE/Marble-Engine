@@ -13,6 +13,8 @@
 
 #include "Objects.hpp"
 #include "variables.hpp"
+#include "ShaderSystem.hpp"
+#include "ShaderSystem.cpp"
 #include "LillyGUI.hpp"
 #include "LillyGUI.cpp"
 #include "main.hpp"
@@ -48,13 +50,17 @@ int SDL_Manager::SetupWindow(bool Switch)
 				 
 				 SDL_GL_SetSwapInterval(1);
 				 glClearColor(0.0,0.0,1.0,1.0);
-				 
-				 glMatrixMode(GL_PROJECTION);
-				 glOrtho(0.0, 1.0, 0.0, 1.0, -1.0 , 1.0);
-				 glMatrixMode(GL_MODELVIEW);
-				 glLoadIdentity();
+				
 		}
 	}
+int SDL_Manager::SetupGL(bool Switch)
+{
+		glGenVertexArrays(1, &VertexArrayID);
+		glBindVertexArray(VertexArrayID);
+		glGenBuffers(1, &VertexBuffer);
+		glBindBuffer(GL_ARRAY_BUFFER, VertexBuffer);
+		glBufferData(GL_ARRAY_BUFFER, sizeof(gl_vertex_buffer_data), gl_vertex_buffer_data, GL_STATIC_DRAW);
+}
 
 int SDL_Manager::RenderFrame(bool Switch)
 {
@@ -62,17 +68,17 @@ int SDL_Manager::RenderFrame(bool Switch)
 		{
 			glClear(GL_COLOR_BUFFER_BIT);
 			
-			glBegin(GL_QUADS);
-			 glColor3f(1.0, 0.0 , 0.0);
-			glVertex2f(0.0,1.0);
-			 glColor3f(1.0, 1.0 , 0.0);
-			glVertex2f(1.0,1.0);
-			 glColor3f(1.0, 0.0 , 1.0);
-			glVertex2f(1.0,0.0);
-			 glColor3f(0.0, 0.0 , 1.0);
-			glVertex2f(0.0,0.0);
-			glEnd();
-								
+			glEnableVertexAttribArray(0);
+			glBindBuffer(GL_ARRAY_BUFFER, VertexBuffer);
+			glVertexAttribPointer(
+			0,
+			3,
+			GL_FLOAT,
+			GL_FALSE,
+			0,
+			(void*)0
+			);
+			
 			SDL_GL_SwapWindow(MainWindow);
 		}
 	}

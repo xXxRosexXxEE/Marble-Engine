@@ -6,6 +6,8 @@
 		{
 				int SwitchSDL(bool Switch);
 				int SetupWindow(bool Switch);
+				int SetupGL(bool Switch);
 				int RenderFrame(bool Switch);
+				
 		};
 #endif
