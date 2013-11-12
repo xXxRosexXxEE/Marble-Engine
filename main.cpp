@@ -39,16 +39,7 @@ int SDL_Manager::SetupWindow(bool Switch)
 			if(MainWindow == NULL){
 				std::cout << SDL_GetError() << std::endl;
 			}
-		/*	
-			MainRenderer = NULL;
-			MainRenderer = SDL_CreateRenderer(MainWindow, -1 , SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-			
-			if(MainRenderer == NULL)
-			{
-					std::cout << SDL_GetError() << std::endl;
-					return 1;
-				}
-			*/	
+	
 				 SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 				 SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
 				 
@@ -68,9 +59,6 @@ int SDL_Manager::RenderFrame(bool Switch)
 {
 	  if(Switch == true)
 		{
-				//SDL_RenderClear(MainRenderer);
-				//RENDER COPY HERE PERHAPS?
-					//SDL_RenderPresent(MainRenderer);
 					glClear(GL_COLOR_BUFFER_BIT);
 					
 					glBegin(GL_QUADS);
