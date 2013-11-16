@@ -3,5 +3,5 @@
 #define _OBJECTS_HPP
 		
 		SDL_Manager SDL_Manager;
-		
+	
 #endif
